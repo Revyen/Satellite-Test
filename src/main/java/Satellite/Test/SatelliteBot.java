@@ -37,7 +37,7 @@ public class SatelliteBot extends TelegramLongPollingBot{
 	@Override
 	public String getBotToken() {
 		// TODO Auto-generated method stub
-		return "515018362:AAGbnYF-LJ51MoP0PTHWOrO9E2z9HsOTfvc";
+		return "";
 	}
 	
 	public void sendMessage(String message)
