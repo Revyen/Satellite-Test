@@ -33,6 +33,13 @@
     <artifactId>unirest-java</artifactId>
     <version>1.4.9</version>
 </dependency>
+<!-- https://mvnrepository.com/artifact/org.telegram/telegrambots -->
+<dependency>
+    <groupId>org.telegram</groupId>
+    <artifactId>telegrambots</artifactId>
+    <version>3.6.1</version>
+</dependency>
+
     
   </dependencies>
 </project>

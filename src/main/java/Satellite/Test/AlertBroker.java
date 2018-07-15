@@ -3,22 +3,46 @@ package Satellite.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AnomalieSearcher {
+public class AlertBroker {
 
 	static int counter = 0;
 	private List<Telemetrie> past;
 	private List<Telemetrie> future;
 	private int size;
 	private List<List<Telemetrie>> Anomalies;
+	private SatelliteBot bot;
+	private List<VisualPass> visualPasses;
 	
 	
-	public AnomalieSearcher(int size)
+	public AlertBroker(int size)
 	{
 		this.size = size;
 		past = new ArrayList<Telemetrie>();
 		future = new ArrayList<Telemetrie>();
 		Anomalies = new ArrayList<List<Telemetrie>>();
+		bot = new SatelliteBot();
+		visualPasses = new ArrayList<VisualPass>();
 	}
+	
+	public void setVisualPasses(List<VisualPass> passes)
+	{
+		this.visualPasses = passes;
+		String message = "";
+		if(visualPasses.size() != 0)
+		{
+			message += "Vorhersage für heute:\n\n";
+			for(VisualPass v : visualPasses)
+			{
+				message += v.toString()+ "\n\n";
+			}
+		}
+		else
+		{
+			message = "Keine Sichtungen heute";
+		}				
+		bot.sendMessage(message);
+	}
+	
 	
 	public void setPrediction(List<Telemetrie> data)
 	{
@@ -60,6 +84,8 @@ public class AnomalieSearcher {
 						System.out.println(t_p.toString());
 						System.out.println(t_f.toString());
 						Anomalies.add(tmp);
+						bot.sendMessage(String.format("Anomalie gefunden:\n\n%s\n\n%s", t_p.toString(),t_f.toString()).toString());
+						
 					}
 				}
 			}
