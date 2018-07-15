@@ -20,7 +20,7 @@ public class SatelliteBot extends TelegramLongPollingBot{
 
 	String urlString = "https://api.telegram.org/bot%s/sendMessage?chat_id=%s&text=%s";
 
-	String apiToken = "515018362:AAGbnYF-LJ51MoP0PTHWOrO9E2z9HsOTfvc";
+	String apiToken = "";
 	String chatId = "@SatelliteDatenbonkosMDB";
 	
 	
